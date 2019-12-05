@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Tile
+  - TileSpawner
+  - Unspawnable
+  - Platform
+  - FloatingRock
+  - Bench
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Tile
+  - SafeGround
+  - Player
+  - Reflectable
+  - PostP
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 3740334257
+    locked: 0
+  - name: BackgroundObject
+    uniqueID: 3741716155
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2098983543
+    locked: 0
+  - name: Decor
+    uniqueID: 2931777537
+    locked: 0
+  - name: InteractiveItems
+    uniqueID: 2134797887
+    locked: 0
+  - name: Player
+    uniqueID: 144260925
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2606755921
+    locked: 0
