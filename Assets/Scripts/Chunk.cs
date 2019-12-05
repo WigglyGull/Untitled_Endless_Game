@@ -16,7 +16,7 @@ public class Chunk : MonoBehaviour{
         spawnPos = transform.position;
         InvokeRepeating("SpawnTiles", 0f, 0.02f);
         for (int i = 0; i < 3; i++){
-            newRock = Instantiate(rocks, new Vector2(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8)), Quaternion.identity);
+            newRock = Instantiate(rocks, new Vector3(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8), 5), Quaternion.identity);
             newRock.transform.parent = gameObject.transform;
         }
         ranDistance = Random.Range(0, 3);

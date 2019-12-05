@@ -59,8 +59,8 @@
      <Compile Include="Assets\Scripts\Camera\CameraScript.cs" />
      <Compile Include="Assets\Scripts\Camera\ScreenSpaceRefractions.cs" />
      <Compile Include="Assets\Scripts\Chunk.cs" />
-     <Compile Include="Assets\Scripts\Cloud.cs" />
-     <Compile Include="Assets\Scripts\CloudSpawning.cs" />
+     <Compile Include="Assets\Scripts\Clouds\Cloud.cs" />
+     <Compile Include="Assets\Scripts\Clouds\CloudSpawning.cs" />
      <Compile Include="Assets\Scripts\Decoration.cs" />
      <Compile Include="Assets\Scripts\FloatingRock.cs" />
      <Compile Include="Assets\Scripts\Grass.cs" />

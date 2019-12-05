@@ -1,9 +1,8 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Parallax : MonoBehaviour{
-    public GameObject[] backgrounds;
+    GameObject[] backgrounds;
+    public string backgroundName;
     Transform cam;
     float[] parallaxScales;
     public float smoothing = 1f;
@@ -33,7 +32,7 @@ public class Parallax : MonoBehaviour{
     }
 
     void SetBackground(){
-        backgrounds = GameObject.FindGameObjectsWithTag("FloatingRock");
+        backgrounds = GameObject.FindGameObjectsWithTag(backgroundName);
         parallaxScales = new float[backgrounds.Length];
         for (int i = 0; i < backgrounds.Length; i++){
             parallaxScales[i] = backgrounds[i].transform.position.z * -1;

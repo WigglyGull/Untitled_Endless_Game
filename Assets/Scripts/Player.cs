@@ -64,7 +64,8 @@ public class Player : MonoBehaviour{
 
         if(idle && !crouch){
             if(breathTime <= 0){
-                Instantiate(breath, breathSpawn.position, transform.localRotation);
+                GameObject _breath = Instantiate(breath, breathSpawn.position, transform.localRotation);
+                _breath.transform.parent = gameObject.transform;
                 breathTime = Random.Range(1.2f, 1.5f);
             }else{
                 breathTime -= Time.deltaTime;

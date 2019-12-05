@@ -23,12 +23,16 @@ public class Decoration : MonoBehaviour{
 
         SpriteRenderer decorSprite = decor.GetComponent<SpriteRenderer>();
 
-        if(decorationNum == 0){
-            decorSprite.sprite = crystalSprites[Random.Range(0, crystalSprites.Length)];
-        }else if(decorationNum == 1){
-            decorSprite.sprite = bushSprites[Random.Range(0, bushSprites.Length)];
-        }else if(decorationNum == 2){
-            decorSprite.sprite = signSprites[Random.Range(0, signSprites.Length)];
+        switch(decorationNum){
+            case(0):
+                decorSprite.sprite = crystalSprites[Random.Range(0, crystalSprites.Length)];
+                break;
+            case(1):
+                decorSprite.sprite = bushSprites[Random.Range(0, bushSprites.Length)];
+                break;
+            case(2):
+                decorSprite.sprite = signSprites[Random.Range(0, signSprites.Length)];
+                break;
         }
     }
 

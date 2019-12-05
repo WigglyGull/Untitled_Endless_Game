@@ -10,6 +10,7 @@ TagManager:
   - Platform
   - FloatingRock
   - Bench
+  - Cloud
   layers:
   - Default
   - TransparentFX

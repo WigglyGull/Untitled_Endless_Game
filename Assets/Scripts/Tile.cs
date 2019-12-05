@@ -139,4 +139,11 @@ public class Tile : MonoBehaviour{
             return false;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag == "Tile" && gameObject.activeSelf){
+            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+        }
+    }
 }

@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BackgroundManager : MonoBehaviour{
 
     public GameObject DayBackground;
-    public GameObject NightBackground;
     public SpriteRenderer darkness;
 
     public Color dusk;
@@ -13,9 +10,10 @@ public class BackgroundManager : MonoBehaviour{
     public Color normal;
 
     SpriteRenderer[] backgroundSp;
+    SpriteRenderer[] clouds;
     SpriteRenderer sp;
 
-    bool day = true;
+    public bool day = true;
     bool fadeBackground;
     bool fadeInBackGround;
 
@@ -70,8 +68,12 @@ public class BackgroundManager : MonoBehaviour{
 
     void SetBackgroundSp(){
         backgroundSp = DayBackground.GetComponentsInChildren<SpriteRenderer>();
+        clouds = GetComponentsInChildren<SpriteRenderer>();
         foreach (var background in backgroundSp){
             background.color = sp.color;
+        }
+        foreach(var cloud in clouds){
+            cloud.color = sp.color;
         }
     }
 }
