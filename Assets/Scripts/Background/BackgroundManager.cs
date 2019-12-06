@@ -58,7 +58,7 @@ public class BackgroundManager : MonoBehaviour{
         }else if(fadeInBackGround){
             Color darknessColor = darkness.color;
 
-            sp.color = Color.Lerp(sp.color, normal, Time.deltaTime * 0.15f);
+            sp.color = Color.Lerp(sp.color, normal, Time.deltaTime * 0.1f);
             darknessColor.a = Mathf.Lerp(darkness.color.a, 0, Time.deltaTime*0.1f);
 
             darkness.color = darknessColor;

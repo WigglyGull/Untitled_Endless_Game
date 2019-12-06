@@ -1349,7 +1349,7 @@ MonoBehaviour:
   darkness: {fileID: 1196057377}
   dusk: {r: 1, g: 0.60784316, b: 0.6391403, a: 1}
   dawn: {r: 1, g: 0.38431373, b: 0.34509805, a: 0}
-  normal: {r: 1, g: 1, b: 1, a: 1}
+  normal: {r: 0.8509804, g: 0.8490566, b: 0.8490566, a: 1}
   day: 1
   time: 0
 --- !u!4 &1361920200
@@ -1581,7 +1581,7 @@ SpriteRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7569fb2de114b407385558aa8b0e2287, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8627451, g: 0.8627451, b: 0.8627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1950,22 +1950,22 @@ PrefabInstance:
     - target: {fileID: 7895279051451775582, guid: c5ff956c5409b4dc98a204be752c981e,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.003007777
       objectReference: {fileID: 0}
     - target: {fileID: 7895279051451775582, guid: c5ff956c5409b4dc98a204be752c981e,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.08192596
+      value: 0.061473027
       objectReference: {fileID: 0}
     - target: {fileID: 7895279051451775582, guid: c5ff956c5409b4dc98a204be752c981e,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: 0.0009023361
       objectReference: {fileID: 0}
     - target: {fileID: 7895279051451775582, guid: c5ff956c5409b4dc98a204be752c981e,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.12
+      value: 0.07728947
       objectReference: {fileID: 0}
     - target: {fileID: 7895279051451775582, guid: c5ff956c5409b4dc98a204be752c981e,
         type: 3}

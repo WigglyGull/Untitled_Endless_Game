@@ -101,7 +101,7 @@ public class Tile : MonoBehaviour{
     }
 
     public bool Down(){
-        raycastHitDown2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x, box2D.bounds.center.y - 0.17f), box2D.bounds.size/8, 0f, Vector2.down, 0.001f, groundLayerMask);
+        raycastHitDown2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x, box2D.bounds.center.y - 0.17f), box2D.bounds.size/7, 0f, Vector2.down, 0.01f, groundLayerMask);
         if(raycastHitDown2d.collider == null)return false;
         if(raycastHitDown2d.collider.tag == "Tile"){
             return true;
@@ -111,7 +111,7 @@ public class Tile : MonoBehaviour{
     }
 
     public bool Up(){
-        raycastHitUp2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x, box2D.bounds.center.y + 0.17f), box2D.bounds.size/8, 0f, Vector2.down, 0.001f, groundLayerMask);
+        raycastHitUp2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x, box2D.bounds.center.y + 0.17f), box2D.bounds.size/7, 0f, Vector2.down, 0.01f, groundLayerMask);
         if(raycastHitUp2d.collider == null)return false;
         if(raycastHitUp2d.collider.tag == "Tile"){
             return true;
@@ -121,7 +121,7 @@ public class Tile : MonoBehaviour{
     }
 
     public bool Right(){
-        raycastHitRight2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x + 0.17f, box2D.bounds.center.y), box2D.bounds.size/8, 0f, Vector2.right, 0.001f, groundLayerMask);
+        raycastHitRight2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x + 0.17f, box2D.bounds.center.y), box2D.bounds.size/7, 0f, Vector2.right, 0.01f, groundLayerMask);
         if(raycastHitRight2d.collider == null)return false;
         if(raycastHitRight2d.collider.tag == "Tile"){
             return true;
@@ -131,7 +131,7 @@ public class Tile : MonoBehaviour{
     }
 
     public bool Left(){
-        raycastHitLeft2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x - 0.17f, box2D.bounds.center.y), box2D.bounds.size/8, 0f, Vector2.left, 0.001f, groundLayerMask);
+        raycastHitLeft2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x - 0.17f, box2D.bounds.center.y), box2D.bounds.size/7, 0f, Vector2.left, 0.01f, groundLayerMask);
         if(raycastHitLeft2d.collider == null)return false;
         if(raycastHitLeft2d.collider.tag == "Tile"){
             return true;
@@ -142,6 +142,7 @@ public class Tile : MonoBehaviour{
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Tile" && gameObject.activeSelf){
+            if(gameObject.activeSelf == false) return;
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
         }
