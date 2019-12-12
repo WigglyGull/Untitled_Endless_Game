@@ -4,10 +4,15 @@ public class BackgroundManager : MonoBehaviour{
 
     public GameObject DayBackground;
     public SpriteRenderer darkness;
+    public SpriteRenderer sunset;
 
     public Color dusk;
     public Color dawn;
     public Color normal;
+
+    Color sunsetColor;
+    Color darknessColor;
+    Color spColor;
 
     SpriteRenderer[] backgroundSp;
     SpriteRenderer[] clouds;
@@ -22,6 +27,7 @@ public class BackgroundManager : MonoBehaviour{
 
     void Start(){
         sp = DayBackground.GetComponent<SpriteRenderer>();
+        sunsetColor.a = 0;
     }
 
     void Update(){
@@ -30,10 +36,14 @@ public class BackgroundManager : MonoBehaviour{
             fadeBackground = false;
             fadeInBackGround = false;
         }
-        if(time > 40 && day){
-            sp.color = Color.Lerp(sp.color, dusk, Time.deltaTime * 0.1f);
+        if(time > 55 && day){
+            sp.color = Color.Lerp(sp.color, dusk, Time.deltaTime * 0.05f);
+
+            sunsetColor = sunset.color;
+            sunsetColor.a = Mathf.Lerp(sunset.color.a, 0.1f, Time.deltaTime*0.1f);
+            sunset.color = sunsetColor;
         }
-        if(time >= 60){
+        if(time >= 80){
             if(day){
                 fadeBackground = true;
                 time = -10;
@@ -47,16 +57,19 @@ public class BackgroundManager : MonoBehaviour{
         }
 
         if(fadeBackground){
-            Color darknessColor = darkness.color;
-            Color spColor = sp.color;
+            darknessColor = darkness.color;
+            spColor = sp.color;
+            sunsetColor = sunset.color;
 
             spColor.a = Mathf.Lerp(sp.color.a, 0, Time.deltaTime*0.15f);
-            darknessColor.a = Mathf.Lerp(darkness.color.a, 0.25f, Time.deltaTime*0.1f);
+            darknessColor.a = Mathf.Lerp(darkness.color.a, 0.40f, Time.deltaTime*0.1f);
+            sunsetColor.a = Mathf.Lerp(sunset.color.a, 0, Time.deltaTime*0.1f);
 
             sp.color = spColor;
             darkness.color = darknessColor;
+            sunset.color = sunsetColor;
         }else if(fadeInBackGround){
-            Color darknessColor = darkness.color;
+            darknessColor = darkness.color;
 
             sp.color = Color.Lerp(sp.color, normal, Time.deltaTime * 0.1f);
             darknessColor.a = Mathf.Lerp(darkness.color.a, 0, Time.deltaTime*0.1f);

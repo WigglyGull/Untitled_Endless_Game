@@ -15,9 +15,9 @@ public class CloudSpawning : MonoBehaviour{
 
     void Update() {
         if(spawnTime <= 0){
-            GameObject newCloud = Instantiate(cloud, new Vector3(Random.Range(transform.position.x - 0.5f, transform.position.x + 4f),Random.Range(transform.position.y - 8f, transform.position.y + 8f), 5), Quaternion.identity);
+            GameObject newCloud = Instantiate(cloud, new Vector3(Random.Range(transform.position.x - 2f, transform.position.x + 4f),Random.Range(transform.position.y - 10f, transform.position.y + 10f), 5), Quaternion.identity);
             newCloud.transform.parent = gm.transform;
-            spawnTime = 0.9f;
+            spawnTime = 0.7f;
         }else{
             spawnTime -= Time.deltaTime;
         }

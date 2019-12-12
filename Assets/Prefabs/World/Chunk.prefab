@@ -61,4 +61,6 @@ MonoBehaviour:
   - {fileID: 1833083697811827189, guid: 7986001bb4c794db09582b6b69a2d11e, type: 3}
   islands:
   - {fileID: 2156967631776390461, guid: 391402c839d23471db4208a6ddbb4f64, type: 3}
+  - {fileID: 4094120334072153263, guid: 3b58f38d097af499687b60ba56ed151d, type: 3}
   rocks: {fileID: 8171457839309334738, guid: 52847b43cb0a84df58af5565e8686b77, type: 3}
+  spark: {fileID: 2661829020625840858, guid: 558ab9973eafa409f83328c892bfb454, type: 3}

@@ -99,3 +99,10 @@ MonoBehaviour:
   - {fileID: 21300006, guid: ad29cce0595e94e7099d317986f08cdc, type: 3}
   - {fileID: 21300008, guid: ad29cce0595e94e7099d317986f08cdc, type: 3}
   - {fileID: 21300010, guid: ad29cce0595e94e7099d317986f08cdc, type: 3}
+  furtherClouds:
+  - {fileID: 21300000, guid: 90f7c473fdf53473aab9d8b7f4f749a3, type: 3}
+  - {fileID: 21300002, guid: 90f7c473fdf53473aab9d8b7f4f749a3, type: 3}
+  - {fileID: 21300004, guid: 90f7c473fdf53473aab9d8b7f4f749a3, type: 3}
+  - {fileID: 21300006, guid: 90f7c473fdf53473aab9d8b7f4f749a3, type: 3}
+  - {fileID: 21300008, guid: 90f7c473fdf53473aab9d8b7f4f749a3, type: 3}
+  - {fileID: 21300010, guid: 90f7c473fdf53473aab9d8b7f4f749a3, type: 3}

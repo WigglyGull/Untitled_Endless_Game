@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[ExecuteInEditMode]
 public class CameraScript : MonoBehaviour{
     float smoothTimeY = 0.05f;
     float smoothTimeX = 0.05f;

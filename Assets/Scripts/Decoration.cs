@@ -1,39 +1,42 @@
 ﻿using UnityEngine;
 
 public class Decoration : MonoBehaviour{
-    public GameObject[] decorations;
-    public Sprite[] crystalSprites;
-    public Sprite[] bushSprites;
-    public Sprite[] signSprites;
+    public int decorations;
+    public Sprite[] snowPile;
+    public Sprite[] signs;
+
+    SpriteRenderer sp;
 
     float randomNum;
-    Vector2 pos;
+    BoxCollider2D box2D;
 
     void Start(){
-        int decorationNum = Random.Range(0, decorations.Length);
+        sp = GetComponent<SpriteRenderer>();
+        box2D = GetComponent<BoxCollider2D>();
 
-        GameObject decor = Instantiate(decorations[decorationNum], transform.position, Quaternion.identity);
-        decor.transform.parent = gameObject.transform;
-        
-        pos = decor.transform.position;
-        if(decorationNum == 1){
-            pos.y -= 0.006f;
+        int decorationNum = Random.Range(0, decorations);
+
+        if(Random.Range(0, 2) == 0){
+            Destroy(gameObject);
         }
-        decor.transform.position = pos;
-
-        SpriteRenderer decorSprite = decor.GetComponent<SpriteRenderer>();
-
+        
+        Vector2 pos = transform.position;
+        Vector2 box = box2D.size;
+        Vector2 boxTransform = box2D.offset;
         switch(decorationNum){
             case(0):
-                decorSprite.sprite = crystalSprites[Random.Range(0, crystalSprites.Length)];
+                sp.sprite = snowPile[Random.Range(0, snowPile.Length)];
                 break;
             case(1):
-                decorSprite.sprite = bushSprites[Random.Range(0, bushSprites.Length)];
-                break;
-            case(2):
-                decorSprite.sprite = signSprites[Random.Range(0, signSprites.Length)];
+                sp.sprite = signs[Random.Range(0, signs.Length)];
+                pos.y += 0.14f;
+                boxTransform.y += 0.1f;
+                box.y += 0.2f;
                 break;
         }
+        transform.position = pos;
+        box2D.size = box;
+        box2D.offset = boxTransform;
     }
 
     void OnTriggerEnter2D(Collider2D other) {

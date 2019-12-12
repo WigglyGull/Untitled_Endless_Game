@@ -4,9 +4,13 @@ public class Chunk : MonoBehaviour{
     public GameObject[] platform;
     public GameObject[] islands;
     public GameObject rocks;
+    public GameObject spark;
+
     GameObject newPlatform;
     GameObject newRock;
     Vector2 spawnPos;
+
+    Tile[] tiles;
 
     float downAmount = 7;
     float totalAmount;
@@ -14,12 +18,13 @@ public class Chunk : MonoBehaviour{
 
     void Start() {
         spawnPos = transform.position;
+        ranDistance = Random.Range(0, 3);
         InvokeRepeating("SpawnTiles", 0f, 0.02f);
+
         for (int i = 0; i < 3; i++){
             newRock = Instantiate(rocks, new Vector3(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8), 5), Quaternion.identity);
             newRock.transform.parent = gameObject.transform;
         }
-        ranDistance = Random.Range(0, 3);
         if(ranDistance == 0){
             GameObject newIsland = Instantiate(islands[Random.Range(0, islands.Length)], new Vector2(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8)), Quaternion.identity);
             newIsland.transform.parent = gameObject.transform;
@@ -27,7 +32,12 @@ public class Chunk : MonoBehaviour{
     }
 
     public void SpawnTiles(){
-        if(totalAmount >= 63){
+        if(totalAmount >= 65){
+            tiles = FindObjectsOfType(typeof(Tile)) as Tile[];
+            foreach(Tile tile in tiles){
+                if(tile == null) return;
+                tile.SetSprites();
+            }
             CancelInvoke("SpawnTiles");
         }
 
@@ -45,6 +55,9 @@ public class Chunk : MonoBehaviour{
              
         newPlatform = Instantiate(platform[Random.Range(0, platform.Length)], spawnPos, Quaternion.identity);
         newPlatform.transform.parent = gameObject.transform;
+
+        ranDistance = Random.Range(0, 5);
+        if(ranDistance == 0) Instantiate(spark, new Vector2(Random.Range(transform.position.x, transform.position.x + 10), Random.Range(transform.position.y, transform.position.y - 10)), Quaternion.identity);
             
         ranDistance = Random.Range(0, 3);
         if(ranDistance == 0){

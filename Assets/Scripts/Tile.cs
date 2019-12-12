@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class Tile : MonoBehaviour{
-    BoxCollider2D box2D;
+    public BoxCollider2D box2D;
     SpriteRenderer sp;
     Sprite leftSprite, rightSprite;
     public LayerMask groundLayerMask;
@@ -12,22 +12,17 @@ public class Tile : MonoBehaviour{
 
     bool down, up, right, left;
 
-    float tileDestroy = 1f;
-    bool shouldSetSprites = true;
+    bool setThenSprites = true;
     
     void Start() {
         box2D = GetComponent<BoxCollider2D>();
         sp = GetComponent<SpriteRenderer>();
     }
 
-    public void Update(){
-        if(shouldSetSprites){
-            if(tileDestroy <= 0){
-                shouldSetSprites = false;
-            }else{
-                SetSprites();
-                tileDestroy -= Time.deltaTime;
-            }  
+    void FixedUpdate() {
+        if(setThenSprites){
+            SetSprites();
+            setThenSprites = false;
         }
     }
 
@@ -45,10 +40,6 @@ public class Tile : MonoBehaviour{
             if(leftSprite == tiles[18] || rightSprite == tiles[20] || rightSprite == tiles[19] || leftSprite == tiles[16] || leftSprite == tiles[14] || rightSprite == tiles[15]){
                 sp.sprite = tiles[19];
             }
-            //LastRow 
-            if(leftSprite == tiles[7] || leftSprite == tiles[12] || leftSprite == tiles[13] || leftSprite == tiles[8] || leftSprite == tiles[21] || rightSprite == tiles[21] || rightSprite == tiles[8] || rightSprite == tiles[9]){
-                sp.sprite = tiles[21];
-            }
         }else if(!right && left && !down && !up){
             sp.sprite = tiles[3];
             leftSprite = raycastHitLeft2d.transform.GetComponent<SpriteRenderer>().sprite;
@@ -56,20 +47,12 @@ public class Tile : MonoBehaviour{
             if(leftSprite == tiles[19] || leftSprite == tiles[18] || leftSprite == tiles[16] || leftSprite == tiles[14]){
                 sp.sprite = tiles[20];
             }
-            //LastRow
-            if(leftSprite == tiles[7] || leftSprite == tiles[8] || leftSprite == tiles[21]){
-                sp.sprite = tiles[13];
-            }
         }else if(right && !left && !down && !up){
             sp.sprite = tiles[1];
             rightSprite = raycastHitRight2d.transform.GetComponent<SpriteRenderer>().sprite;
             //MiddleRow
             if(rightSprite == tiles[19] || rightSprite == tiles[20] || rightSprite == tiles[16] || rightSprite == tiles[15]){
                 sp.sprite = tiles[18];
-            }
-            //LastRow
-            if(rightSprite == tiles[8] || rightSprite == tiles[9] || rightSprite == tiles[11] || rightSprite == tiles[21]){
-                sp.sprite = tiles[12];
             }
         }else if(!down && up && !right && !left){
             sp.sprite = tiles[10];
@@ -95,12 +78,11 @@ public class Tile : MonoBehaviour{
             sp.sprite = tiles[15];
         }else if(down && up && !right && !left){
             sp.sprite = tiles[17];
-        }else{
-            sp.sprite = tiles[0];
         }
     }
 
     public bool Down(){
+        if(box2D == null) return false;
         raycastHitDown2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x, box2D.bounds.center.y - 0.17f), box2D.bounds.size/7, 0f, Vector2.down, 0.01f, groundLayerMask);
         if(raycastHitDown2d.collider == null)return false;
         if(raycastHitDown2d.collider.tag == "Tile"){
@@ -111,6 +93,7 @@ public class Tile : MonoBehaviour{
     }
 
     public bool Up(){
+        if(box2D == null) return false;
         raycastHitUp2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x, box2D.bounds.center.y + 0.17f), box2D.bounds.size/7, 0f, Vector2.down, 0.01f, groundLayerMask);
         if(raycastHitUp2d.collider == null)return false;
         if(raycastHitUp2d.collider.tag == "Tile"){
@@ -121,6 +104,7 @@ public class Tile : MonoBehaviour{
     }
 
     public bool Right(){
+        if(box2D == null) return false;
         raycastHitRight2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x + 0.17f, box2D.bounds.center.y), box2D.bounds.size/7, 0f, Vector2.right, 0.01f, groundLayerMask);
         if(raycastHitRight2d.collider == null)return false;
         if(raycastHitRight2d.collider.tag == "Tile"){
@@ -131,20 +115,13 @@ public class Tile : MonoBehaviour{
     }
 
     public bool Left(){
+        if(box2D == null) return false;
         raycastHitLeft2d = Physics2D.BoxCast(new Vector2(box2D.bounds.center.x - 0.17f, box2D.bounds.center.y), box2D.bounds.size/7, 0f, Vector2.left, 0.01f, groundLayerMask);
         if(raycastHitLeft2d.collider == null)return false;
         if(raycastHitLeft2d.collider.tag == "Tile"){
             return true;
         }else{
             return false;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "Tile" && gameObject.activeSelf){
-            if(gameObject.activeSelf == false) return;
-            other.gameObject.SetActive(false);
-            Destroy(other.gameObject);
         }
     }
 }
