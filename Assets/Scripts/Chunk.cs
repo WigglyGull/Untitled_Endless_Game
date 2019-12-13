@@ -56,8 +56,11 @@ public class Chunk : MonoBehaviour{
         newPlatform = Instantiate(platform[Random.Range(0, platform.Length)], spawnPos, Quaternion.identity);
         newPlatform.transform.parent = gameObject.transform;
 
-        ranDistance = Random.Range(0, 5);
-        if(ranDistance == 0) Instantiate(spark, new Vector2(Random.Range(transform.position.x, transform.position.x + 10), Random.Range(transform.position.y, transform.position.y - 10)), Quaternion.identity);
+        ranDistance = Random.Range(0, 10);
+        if(ranDistance == 0){
+            GameObject newSpark =Instantiate(spark, new Vector2(Random.Range(transform.position.x, transform.position.x + 10), Random.Range(transform.position.y, transform.position.y - 10)), Quaternion.identity);
+            newSpark.transform.parent = gameObject.transform;
+        }
             
         ranDistance = Random.Range(0, 3);
         if(ranDistance == 0){

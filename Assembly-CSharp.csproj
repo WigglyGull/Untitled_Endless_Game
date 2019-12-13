@@ -53,10 +53,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CodeMonkey\Assets.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\Button_Sprite.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\Button_UI.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\FunctionPeriodic.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\FunctionTimer.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\FunctionUpdater.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\UI_Bar.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\UI_BarMultiple.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\UI_Sprite.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\UI_TextComplex.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\UtilsClass.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\World_Bar.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\World_Mesh.cs" />
+     <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
      <Compile Include="Assets\Scripts\Background\Background.cs" />
      <Compile Include="Assets\Scripts\Background\BackgroundManager.cs" />
      <Compile Include="Assets\Scripts\Breath.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraScript.cs" />
+     <Compile Include="Assets\Scripts\Camera\Parallax.cs" />
+     <Compile Include="Assets\Scripts\Camera\PixelBoy.cs" />
      <Compile Include="Assets\Scripts\Camera\ScreenSpaceRefractions.cs" />
      <Compile Include="Assets\Scripts\Chunk.cs" />
      <Compile Include="Assets\Scripts\Clouds\Cloud.cs" />
@@ -65,11 +81,14 @@
      <Compile Include="Assets\Scripts\FloatingRock.cs" />
      <Compile Include="Assets\Scripts\Grass.cs" />
      <Compile Include="Assets\Scripts\InfinteSpawning.cs" />
-     <Compile Include="Assets\Scripts\Parallax.cs" />
-     <Compile Include="Assets\Scripts\PixelBoy.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\Spark.cs" />
+     <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\Spark\Spark.cs" />
+     <Compile Include="Assets\Scripts\Spark\SparkChunk.cs" />
+     <Compile Include="Assets\Scripts\Testing.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
+     <Compile Include="Assets\Scripts\Ui\ExpBarAnimator.cs" />
+     <Compile Include="Assets\Scripts\Ui\Ui.cs" />
      <Compile Include="Assets\Scripts\Unspawnable.cs" />
  <Reference Include="Unity.PackageManagerUI.Editor">
  <HintPath>/Users/Angeline/Endless/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>

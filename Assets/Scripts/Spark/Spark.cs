@@ -13,7 +13,7 @@ public class Spark : MonoBehaviour{
     void Start() {
         sprite = GetComponent<SpriteRenderer>();
         ps = GetComponentInChildren<ParticleSystem>();
-        speed = Time.deltaTime * 50;
+        speed = Time.deltaTime * 40;
     }
 
 
@@ -21,24 +21,9 @@ public class Spark : MonoBehaviour{
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         distance = Vector2.Distance(transform.position, player.position);
 
-        if(distance < 1.8f){
-            found = true;
+        if(distance < 0.8f){
+            move = true;
         }
-
-        if(found == true){
-            sprite.enabled = true;
-            ps.enableEmission = true;
-            if(distance > 4){
-                Destroy(gameObject);
-            }
-            if(distance < 0.8f){
-                move = true;
-            }
-        }else{
-            ps.enableEmission = false;
-            sprite.enabled = false;
-        }
-
         
         MoveTowards();
     }
