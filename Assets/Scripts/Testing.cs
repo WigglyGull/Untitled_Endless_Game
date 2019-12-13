@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Testing : MonoBehaviour{
-    [SerializeField] Ui ui;
+    public Ui ui;
 
     void Awake() {
         PlayerStats playerStats = new PlayerStats();
