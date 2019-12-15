@@ -74,21 +74,7 @@ public class Player : MonoBehaviour{
             breathTime = Random.Range(1.2f, 1.5f);
         }
 
-        //Rotation Mess
-        if(moveInput < 0) {
-            rotation.y = 180;
-            transform.localRotation = rotation;
-            jumpSmokeSpawn[0].localRotation = rotation;
-            rotation.y = 0;
-            jumpSmokeSpawn[1].localRotation = rotation;
-        }else if(moveInput > 0){
-            rotation.y = 0;
-            rotation.x = 0;
-            transform.localRotation = rotation;
-            jumpSmokeSpawn[0].localRotation = rotation;
-            rotation.y = 180;
-            jumpSmokeSpawn[1].localRotation = rotation;
-        }
+        RotationMess();
         
         if(grounded && !landed && fall){
             Land();
@@ -148,6 +134,23 @@ public class Player : MonoBehaviour{
         fallTime = 0;
         landed = false;
         jump = true;
+    }
+
+    void RotationMess(){
+        if(moveInput < 0) {
+            rotation.y = 180;
+            transform.localRotation = rotation;
+            jumpSmokeSpawn[0].localRotation = rotation;
+            rotation.y = 0;
+            jumpSmokeSpawn[1].localRotation = rotation;
+        }else if(moveInput > 0){
+            rotation.y = 0;
+            rotation.x = 0;
+            transform.localRotation = rotation;
+            jumpSmokeSpawn[0].localRotation = rotation;
+            rotation.y = 180;
+            jumpSmokeSpawn[1].localRotation = rotation;
+        }
     }
 
     void Land(){
