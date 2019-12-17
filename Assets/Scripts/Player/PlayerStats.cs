@@ -5,7 +5,7 @@ public class PlayerStats{
     public event EventHandler OnExprienceChanged;
     public event EventHandler OnLevelChanged;
 
-    static readonly int[] experiencePerLevel = new[] {100, 120, 140, 160, 190, 200, 220, 240, 260, 290, 300, 320, 340, 360, 390, 400, 420, 440, 460, 490, 500, 520, 540, 560, 590, 600, 520, 540, 560, 590, 600};
+    static readonly int[] experiencePerLevel = new[] {100, 120, 140, 160, 190, 200, 220, 240, 260, 290, 300, 320, 340, 360, 390, 400, 420, 440, 460, 490, 500, 520, 540, 560, 590, 600, 520, 540, 560, 590, 600, 620, 640, 660, 690, 700, 720, 740, 760, 790, 800};
 
     int level;
     int sparks;
@@ -22,15 +22,17 @@ public class PlayerStats{
     public void AddExperience(int amount){
         if(IsMaxLevel()) return;
         experience += amount;
-        while (!IsMaxLevel() && experience >= GetExperienceToNextLevel(level)){
-            level++;
+        while (experience >= GetExperienceToNextLevel(level)){
+            if(IsMaxLevel()) return;
             experience -= GetExperienceToNextLevel(level);
+            level++;
             if(OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
         }
         if(OnExprienceChanged != null) OnExprienceChanged(this, EventArgs.Empty);
     }
 
-    public void AddSparks(){
+    public void AddSparks(Animator anim){
+        anim.SetTrigger("UiPop");
         sparks++;
     }
     public void AddItem(){

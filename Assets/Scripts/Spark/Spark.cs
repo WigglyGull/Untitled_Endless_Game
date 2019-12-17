@@ -2,20 +2,10 @@
 
 public class Spark : MonoBehaviour{
     Transform player;
-    bool found, move;
-    SpriteRenderer sprite;
+    bool move, found;
+    Ui ui;
 
-    float speed;
     float distance;
-
-    ParticleSystem ps;
-
-    void Start() {
-        sprite = GetComponent<SpriteRenderer>();
-        ps = GetComponentInChildren<ParticleSystem>();
-        speed = Time.deltaTime * 40;
-    }
-
 
     void Update() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -25,25 +15,33 @@ public class Spark : MonoBehaviour{
             move = true;
         }
         
+        if(distance < 1.8f){
+            found = true;
+        }
+        
         MoveTowards();
     }
 
     void MoveTowards(){
         if(move){
             Vector2 pos= transform.position;
-            pos.x += ((player.transform.position.x - pos.x) * 0.1f) * speed;
-            pos.y += ((player.transform.position.y - pos.y) * 0.1f) * speed;
+            pos.x += (player.transform.position.x - pos.x) * (Time.deltaTime * 5);
+            pos.y += (player.transform.position.y - pos.y) * (Time.deltaTime * 5);
             transform.position = pos;
         }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
+            ui = FindObjectOfType<Ui>();
+            ui.AddExperience();
+            ui.AddSparks();
             Destroy(gameObject);
         }
-        if(other.tag == "Tile" || other.tag == "Platform"){
-            if(move) return;
-            Destroy(gameObject);
+        if(!move && !found){
+            if(other.tag == "Tile" || other.tag == "Platform"){
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ public class BackgroundManager : MonoBehaviour{
     SpriteRenderer sp;
 
     public bool day = true;
+    public bool duskTime;
     bool fadeBackground;
     bool fadeInBackGround;
 
@@ -42,17 +43,20 @@ public class BackgroundManager : MonoBehaviour{
             sunsetColor = sunset.color;
             sunsetColor.a = Mathf.Lerp(sunset.color.a, 0.1f, Time.deltaTime*0.1f);
             sunset.color = sunsetColor;
+            duskTime = true;
         }
         if(time >= 80){
             if(day){
                 fadeBackground = true;
                 time = -10;
                 day = false;
+                duskTime = false;
             }else if(!day){
                 sp.color = dawn;
                 fadeInBackGround = true;
                 time = -10;
                 day = true;
+                duskTime = false;
             }
         }
 

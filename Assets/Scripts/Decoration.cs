@@ -4,6 +4,7 @@ public class Decoration : MonoBehaviour{
     public int decorations;
     public Sprite[] snowPile;
     public Sprite[] signs;
+    public Sprite[] trashCans;
 
     SpriteRenderer sp;
 
@@ -13,13 +14,17 @@ public class Decoration : MonoBehaviour{
     void Start(){
         sp = GetComponent<SpriteRenderer>();
         box2D = GetComponent<BoxCollider2D>();
-
-        int decorationNum = Random.Range(0, decorations);
-
+        
         if(Random.Range(0, 2) == 0){
             Destroy(gameObject);
         }
-        
+
+        SetSprite();
+    }
+
+    void SetSprite(){
+        int decorationNum = Random.Range(0, decorations);
+
         Vector2 pos = transform.position;
         Vector2 box = box2D.size;
         Vector2 boxTransform = box2D.offset;
@@ -32,6 +37,10 @@ public class Decoration : MonoBehaviour{
                 pos.y += 0.14f;
                 boxTransform.y += 0.1f;
                 box.y += 0.2f;
+                break;
+            case(2):
+                sp.sprite = trashCans[Random.Range(0, trashCans.Length)];
+                pos.y += 0.12f;
                 break;
         }
         transform.position = pos;

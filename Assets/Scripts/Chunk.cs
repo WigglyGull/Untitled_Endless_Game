@@ -32,7 +32,7 @@ public class Chunk : MonoBehaviour{
     }
 
     public void SpawnTiles(){
-        if(totalAmount >= 65){
+        if(totalAmount >= 60){
             tiles = FindObjectsOfType(typeof(Tile)) as Tile[];
             foreach(Tile tile in tiles){
                 if(tile == null) return;
@@ -46,7 +46,7 @@ public class Chunk : MonoBehaviour{
             if(ranDistance == 0){
                 spawnPos.Set(transform.position.x, spawnPos.y -= 0.9f);
             }else if(ranDistance == 1){
-                spawnPos.Set(transform.position.x + 0.3f, spawnPos.y -= 0.9f);
+                spawnPos.Set(transform.position.x + 0.3f, spawnPos.y -= 1.2f);
             }else{
                 spawnPos.Set(transform.position.x - 0.3f, spawnPos.y -= 0.9f);
             }
@@ -56,7 +56,7 @@ public class Chunk : MonoBehaviour{
         newPlatform = Instantiate(platform[Random.Range(0, platform.Length)], spawnPos, Quaternion.identity);
         newPlatform.transform.parent = gameObject.transform;
 
-        ranDistance = Random.Range(0, 10);
+        ranDistance = Random.Range(0, 11);
         if(ranDistance == 0){
             GameObject newSpark =Instantiate(spark, new Vector2(Random.Range(transform.position.x, transform.position.x + 10), Random.Range(transform.position.y, transform.position.y - 10)), Quaternion.identity);
             newSpark.transform.parent = gameObject.transform;
@@ -64,11 +64,11 @@ public class Chunk : MonoBehaviour{
             
         ranDistance = Random.Range(0, 3);
         if(ranDistance == 0){
-            spawnPos.Set(spawnPos.x += 0.9f, spawnPos.y);
-        }else if(ranDistance == 1){
             spawnPos.Set(spawnPos.x += 1.2f, spawnPos.y);
-        }else{
+        }else if(ranDistance == 1){
             spawnPos.Set(spawnPos.x += 1.5f, spawnPos.y);
+        }else{
+            spawnPos.Set(spawnPos.x += 1.8f, spawnPos.y);
         }
         totalAmount++;
     }

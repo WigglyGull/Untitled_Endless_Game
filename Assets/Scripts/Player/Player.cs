@@ -32,6 +32,8 @@ public class Player : MonoBehaviour{
 
     [HideInInspector]
     public bool walk, idle, jump, fall, crouch, landed, earlyJump, under, grounded, sit;
+
+    bool closeToChair;
     
 
     void Start(){
@@ -81,6 +83,8 @@ public class Player : MonoBehaviour{
         }
 
         if(earlyJump) EarlyJump();
+
+        HandleSitting();
 
         anim.SetBool("Crouch", crouch);
         anim.SetBool("Walk", walk);
@@ -201,7 +205,13 @@ public class Player : MonoBehaviour{
             crouch = true;
         }
         if(other.tag == "Bench"){
-            if(Input.GetKeyDown("e") && !sit){
+            closeToChair = true;
+        }
+    }
+
+    void HandleSitting(){
+        if(closeToChair){
+            if(Input.GetButtonDown("Interact") && !sit){
                 sit = true;
                 Vector2 pos = transform.position;
                 pos.y += 0.05f;
@@ -213,6 +223,9 @@ public class Player : MonoBehaviour{
     void OnTriggerExit2D(Collider2D other) {
         if(other.tag == "Platform"){
             crouch = false;
+        }   
+        if(other.tag == "Bench"){
+            closeToChair = false;
         }   
     }
 }

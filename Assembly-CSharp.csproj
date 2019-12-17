@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Animals\Butterfly.cs" />
      <Compile Include="Assets\Scripts\Background\Background.cs" />
      <Compile Include="Assets\Scripts\Background\BackgroundManager.cs" />
      <Compile Include="Assets\Scripts\Breath.cs" />
@@ -71,7 +72,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Spark\Spark.cs" />
      <Compile Include="Assets\Scripts\Spark\SparkChunk.cs" />
-     <Compile Include="Assets\Scripts\Testing.cs" />
+     <Compile Include="Assets\Scripts\Testing Scripts\Flying.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
      <Compile Include="Assets\Scripts\Ui\ExpBarAnimator.cs" />
      <Compile Include="Assets\Scripts\Ui\Ui.cs" />
@@ -83,6 +84,12 @@
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>/Users/Angeline/Endless/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>/Users/Angeline/Endless/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>/Users/Angeline/Endless/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
  <HintPath>/Users/Angeline/Endless/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/PixelBoy")]
@@ -10,24 +9,21 @@ public class PixelBoy : MonoBehaviour
 
     public Camera cam;
 
-    protected void Start()
-    {
+    protected void Start(){
     	cam = GetComponent<Camera>();
     	
-        if (!SystemInfo.supportsImageEffects)
-        {
+        if (!SystemInfo.supportsImageEffects){
             enabled = false;
             return;
         }
     }
     void Update() {
-
+        if(w < 1) w = 1;
+        if(h < 1) h = 1;
         float ratio = ((float)cam.pixelHeight / (float)cam.pixelWidth);
         h = Mathf.RoundToInt(w * ratio);
-        
     }
-    void OnRenderImage(RenderTexture source, RenderTexture destination)
-    {
+    void OnRenderImage(RenderTexture source, RenderTexture destination){
         source.filterMode = FilterMode.Point;
         RenderTexture buffer = RenderTexture.GetTemporary(w, h, -1);
         buffer.filterMode = FilterMode.Point;

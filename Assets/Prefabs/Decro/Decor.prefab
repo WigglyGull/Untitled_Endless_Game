@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2d539db95b84a6692c374e017563e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decorations: 2
+  decorations: 3
   snowPile:
   - {fileID: 21300000, guid: db8a98eba8a3c4d988b26118e77134ce, type: 3}
   - {fileID: 21300002, guid: db8a98eba8a3c4d988b26118e77134ce, type: 3}
@@ -64,6 +64,10 @@ MonoBehaviour:
   - {fileID: 21300016, guid: 0c6f5e308c75e4e85aafafe38b6b5f90, type: 3}
   - {fileID: 21300018, guid: 0c6f5e308c75e4e85aafafe38b6b5f90, type: 3}
   - {fileID: 21300020, guid: 0c6f5e308c75e4e85aafafe38b6b5f90, type: 3}
+  trashCans:
+  - {fileID: 21300000, guid: d8c1bd81300784bb19bc649257b92827, type: 3}
+  - {fileID: 21300002, guid: d8c1bd81300784bb19bc649257b92827, type: 3}
+  - {fileID: 21300004, guid: d8c1bd81300784bb19bc649257b92827, type: 3}
 --- !u!61 &1031493104820358035
 BoxCollider2D:
   m_ObjectHideFlags: 0
