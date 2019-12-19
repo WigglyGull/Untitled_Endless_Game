@@ -13,6 +13,7 @@ public class Player : MonoBehaviour{
     public Transform[] jumpSmokeSpawn;
 
     public LayerMask groundLayerMask;
+    PlayerStats playerStats;
 
     public Animator anim;
     Rigidbody2D rb;
@@ -29,16 +30,21 @@ public class Player : MonoBehaviour{
     float fallTime;
 
     Quaternion rotation;
+    public ParticleSystem ps;
+    public CameraShake cs;
+    public TextPop tp;
 
     [HideInInspector]
     public bool walk, idle, jump, fall, crouch, landed, earlyJump, under, grounded, sit;
 
     bool closeToChair;
     
-
-    void Start(){
+    void Awake() {
         rb = GetComponent<Rigidbody2D>();
         box2D = GetComponent<BoxCollider2D>();
+    }
+
+    void Start(){
         normalSpeed = speed;
         breathTime = Random.Range(1.2f, 1.5f);  
         rotation = transform.rotation;
@@ -92,6 +98,24 @@ public class Player : MonoBehaviour{
         anim.SetBool("JumpUp", jump);
         anim.SetBool("JumpDown", fall);
         anim.SetBool("Sit", sit);
+    }
+
+    public void SetPlayerStats(PlayerStats playerStats){
+        this.playerStats = playerStats;
+
+        playerStats.OnLevelChanged += PlayerStats_OnLevelChanged;
+    }
+
+    void PlayerStats_OnLevelChanged(object sender, System.EventArgs e){
+        if(IsGrounded()){
+            anim.SetTrigger("LevelUp");
+            cs.Shake(0.3f, 0.02f);
+        }else{
+            cs.Shake(0.3f, 0.05f);
+        }
+        ps.Emit(100);
+        
+        tp.Pop();
     }
 
     void FixedUpdate(){

@@ -39,9 +39,7 @@ public class SparkChunk : MonoBehaviour{
                 var em = particle.emission;
                 em.enabled = true;
             }
-            if(distance > 4){
-                Destroy(gameObject);
-            }
+            Destroy(this);
         }
     }
 }

@@ -9,11 +9,14 @@ public class Ui : MonoBehaviour{
     public Sprite[] itemSockets;
     public Animator sparkAnim;
     PlayerStats playerStats;
+    public Player player;
     ExpBarAnimator expBarAnimated;
 
     void Awake() {
         PlayerStats playerStats = new PlayerStats();
         SetLevel(playerStats);
+
+        player.SetPlayerStats(playerStats);
 
         ExpBarAnimator expBar = new ExpBarAnimator(playerStats);
         SetLevelAnimatied(expBar);
