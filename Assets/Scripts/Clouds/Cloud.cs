@@ -34,10 +34,9 @@ public class Cloud : MonoBehaviour{
         transform.Translate(Vector2.left * (speed * Time.deltaTime), transform);
 
         distance = Vector2.Distance(transform.position, player.position);
-        if(distance >= 12){
+        if(distance >= 11){
             Destroy(gameObject);
         }
-
         FrontFade();
     }
 

@@ -18,10 +18,6 @@ public class Spark : MonoBehaviour{
         if(distance < 1.8f){
             found = true;
         }
-
-        if(distance > 4 && !move){
-            Destroy(gameObject);
-        }
         
         MoveTowards();
     }

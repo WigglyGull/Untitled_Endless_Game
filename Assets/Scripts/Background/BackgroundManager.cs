@@ -20,11 +20,10 @@ public class BackgroundManager : MonoBehaviour{
 
     public bool day = true;
     public bool duskTime;
-    bool fadeBackground;
-    bool fadeInBackGround;
+    public bool fadeBackground;
+    public bool fadeInBackGround;
 
-    [Range(-10, 60)]
-    public float time;
+    [Range(-10, 80)]public float time;
 
     void Start(){
         sp = DayBackground.GetComponent<SpriteRenderer>();
@@ -60,6 +59,22 @@ public class BackgroundManager : MonoBehaviour{
             }
         }
 
+        FadeBackgrounds();
+    }
+
+    void ChangeDay(bool _day, bool setSp){
+        time = -10;
+        day = _day;
+        duskTime = false;
+        if(_day){
+            sp.color = dawn;
+            fadeInBackGround = true;
+        }else{
+            fadeBackground = true;
+        }
+    }
+
+    void FadeBackgrounds(){
         if(fadeBackground){
             darknessColor = darkness.color;
             spColor = sp.color;

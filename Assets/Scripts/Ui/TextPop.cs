@@ -37,7 +37,6 @@ public class TextPop : MonoBehaviour{
         } else if(transform.position.y <= startPos.y && !up){
             transform.position = startPos;
             pop = false;
-            print("done");
         }
     }
 }

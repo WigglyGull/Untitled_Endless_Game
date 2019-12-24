@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof (BoxCollider2D))]
 public class Controller2d : MonoBehaviour{
+    public LayerMask collisonMask;
+
     const float skinWidth = 0.015f;
     public int horizontalRayCount = 4;
     public int verticalRayCount = 4;
@@ -22,13 +23,19 @@ public class Controller2d : MonoBehaviour{
     public void Move(Vector3 veloctiy){
         UpdateRaycastOrigin();
 
+        VerticalCollision (ref veloctiy);
+
         transform.Translate(veloctiy);
     }
 
     void VerticalCollision(ref Vector3 velocity){
-        float directionY = Mathf.Sign (velocity.y);
+        float directionY = Mathf.Sign(velocity.y);
+        float rayLength = Mathf.Abs(velocity.y) + skinWidth;
 
         for(int i =0; i < verticalRayCount; i++){
+            Vector2 rayOrigin = (directionY == -1)?raycastOrigins.bottomLeft:raycastOrigins.topLeft;
+            rayOrigin += Vector2.right * (verticalRaySpacing * i * velocity.x);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisonMask);
             Debug.DrawRay(raycastOrigins.bottomLeft + Vector2.right * verticalRaySpacing * i, Vector2.down * 2, Color.red);
         }
     }

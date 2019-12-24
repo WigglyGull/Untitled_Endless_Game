@@ -21,13 +21,18 @@ public class Chunk : MonoBehaviour{
         ranDistance = Random.Range(0, 3);
         InvokeRepeating("SpawnTiles", 0f, 0.02f);
 
-        for (int i = 0; i < 3; i++){
-            newRock = Instantiate(rocks, new Vector3(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8), 5), Quaternion.identity);
-            newRock.transform.parent = gameObject.transform;
-        }
+        SpawnObjects(3, rocks);
+        
         if(ranDistance == 0){
             GameObject newIsland = Instantiate(islands[Random.Range(0, islands.Length)], new Vector2(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8)), Quaternion.identity);
             newIsland.transform.parent = gameObject.transform;
+        }
+    }
+
+    void SpawnObjects(int time, GameObject gameobject){
+        for (int i = 0; i < time; i++){
+            newRock = Instantiate(gameObject, new Vector3(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8), 5), Quaternion.identity);
+            newRock.transform.parent = gameObject.transform;
         }
     }
 

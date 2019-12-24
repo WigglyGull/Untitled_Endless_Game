@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 
 public class Player : MonoBehaviour{
-    public KeyCode left, right;
-
     Vector2 velocity;
     Vector2 box;
     Vector2 pos;
@@ -25,6 +23,7 @@ public class Player : MonoBehaviour{
     public float lowJump;
     float normalSpeed;
     float moveInput;
+    float directMoveInput;
     float breathTime; 
     float coyoteTime;
     float fallTime;
@@ -34,10 +33,10 @@ public class Player : MonoBehaviour{
     public CameraShake cs;
     public TextPop tp;
 
-    [HideInInspector]
-    public bool walk, idle, jump, fall, crouch, landed, earlyJump, under, grounded, sit;
+    [HideInInspector] public bool walk, idle, jump, fall, crouch, landed, earlyJump, grounded, sit, balance;
 
     bool closeToChair;
+    bool left;
     
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -66,6 +65,14 @@ public class Player : MonoBehaviour{
             }
         }
 
+        if(Input.GetButtonDown("MoveButtons") && !jump && !crouch){
+            if(moveInput < 0 && left) return;
+            if(moveInput > 0 && !left) return;
+            anim.SetTrigger("Turn");
+        }
+
+        RotationMess();
+
         if(rb.velocity.y == 0){
             jump = false;
         }
@@ -81,8 +88,6 @@ public class Player : MonoBehaviour{
         }else{
             breathTime = Random.Range(1.2f, 1.5f);
         }
-
-        RotationMess();
         
         if(grounded && !landed && fall){
             Land();
@@ -120,6 +125,7 @@ public class Player : MonoBehaviour{
 
     void FixedUpdate(){
         moveInput = Input.GetAxis("Horizontal");
+        directMoveInput = Input.GetAxisRaw("Horizontal");
         velocity.Set(moveInput * speed * Time.deltaTime, rb.velocity.y);
         rb.velocity = velocity;
 
@@ -165,19 +171,21 @@ public class Player : MonoBehaviour{
     }
 
     void RotationMess(){
-        if(moveInput < 0) {
+        if(directMoveInput < 0) {
             rotation.y = 180;
             transform.localRotation = rotation;
             jumpSmokeSpawn[0].localRotation = rotation;
             rotation.y = 0;
             jumpSmokeSpawn[1].localRotation = rotation;
-        }else if(moveInput > 0){
+            left = true;
+        }else if(directMoveInput > 0){
             rotation.y = 0;
             rotation.x = 0;
             transform.localRotation = rotation;
             jumpSmokeSpawn[0].localRotation = rotation;
             rotation.y = 180;
             jumpSmokeSpawn[1].localRotation = rotation;
+            left = false;
         }
     }
 
@@ -222,6 +230,12 @@ public class Player : MonoBehaviour{
             if(!fall) fallTime = 0;
             fall = true;
         }
+
+        if(balance && idle){
+            anim.SetBool("Balance", true);
+            idle = false;
+        }
+        if(!balance) anim.SetBool("Balance", false);
     }
 
     void OnTriggerStay2D(Collider2D other)  {

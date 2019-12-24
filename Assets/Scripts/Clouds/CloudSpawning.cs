@@ -14,16 +14,16 @@ public class CloudSpawning : MonoBehaviour{
     }
 
     void Update() {
-        if(spawnTime <= 0){
+        if(spawnTime <= 0 && bm.day){
             GameObject newCloud = Instantiate(cloud, new Vector3(Random.Range(transform.position.x - 2f, transform.position.x + 4f),Random.Range(transform.position.y - 10f, transform.position.y + 10f), 5), Quaternion.identity);
             newCloud.transform.parent = gm.transform;
-            spawnTime = 0.7f;
+            spawnTime = 0.65f;
             frontCloudTime++;
         }else{
             spawnTime -= Time.deltaTime;
         }
 
-        if(frontCloudTime > 10){
+        if(frontCloudTime > 10 && bm.day){
             GameObject newCloud = Instantiate(frontCloud, new Vector3(Random.Range(transform.position.x - 2f, transform.position.x + 4f),Random.Range(transform.position.y - 10f, transform.position.y + 10f), 5), Quaternion.identity);            
             frontCloudTime = 0;
         }
