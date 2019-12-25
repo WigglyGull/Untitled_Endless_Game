@@ -29,9 +29,9 @@ public class Chunk : MonoBehaviour{
         }
     }
 
-    void SpawnObjects(int time, GameObject gameobject){
+    void SpawnObjects(int time, GameObject newgameobject){
         for (int i = 0; i < time; i++){
-            newRock = Instantiate(gameObject, new Vector3(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8), 5), Quaternion.identity);
+            newRock = Instantiate(newgameobject, new Vector3(Random.Range(transform.position.x, transform.position.x + 8), Random.Range(transform.position.y, transform.position.y - 8), 5), Quaternion.identity);
             newRock.transform.parent = gameObject.transform;
         }
     }
@@ -61,9 +61,9 @@ public class Chunk : MonoBehaviour{
         newPlatform = Instantiate(platform[Random.Range(0, platform.Length)], spawnPos, Quaternion.identity);
         newPlatform.transform.parent = gameObject.transform;
 
-        ranDistance = Random.Range(0, 11);
+        ranDistance = Random.Range(0, 16);
         if(ranDistance == 0){
-            GameObject newSpark =Instantiate(spark, new Vector2(Random.Range(transform.position.x, transform.position.x + 10), Random.Range(transform.position.y, transform.position.y - 10)), Quaternion.identity);
+            GameObject newSpark =Instantiate(spark, new Vector2(Random.Range(transform.position.x, transform.position.x + 11), Random.Range(transform.position.y, transform.position.y - 11)), Quaternion.identity);
             newSpark.transform.parent = gameObject.transform;
         }
             

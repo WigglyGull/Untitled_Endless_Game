@@ -12,9 +12,6 @@ public class Decoration : MonoBehaviour{
     BoxCollider2D box2D;
 
     void Start(){
-        sp = GetComponent<SpriteRenderer>();
-        box2D = GetComponent<BoxCollider2D>();
-        
         if(Random.Range(0, 2) == 0){
             Destroy(gameObject);
         }
@@ -23,6 +20,9 @@ public class Decoration : MonoBehaviour{
     }
 
     void SetSprite(){
+        sp = GetComponent<SpriteRenderer>();
+        box2D = GetComponent<BoxCollider2D>();
+
         int decorationNum = Random.Range(0, decorations);
 
         Vector2 pos = transform.position;

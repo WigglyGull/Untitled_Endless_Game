@@ -11,6 +11,7 @@ public class Butterfly : MonoBehaviour{
     ButterflyBoxs bb;
 
     float distance;
+    bool visible;
 
     void Start(){
         sp = GetComponent<SpriteRenderer>();
@@ -28,6 +29,7 @@ public class Butterfly : MonoBehaviour{
     }
 
     void Update(){
+        if(!visible) return;
         distance = Vector2.Distance(transform.position, target);
         transform.position = Vector2.MoveTowards(transform.position, target, 0.2f * Time.deltaTime);
 
@@ -43,6 +45,14 @@ public class Butterfly : MonoBehaviour{
         }else{
             sp.flipX = false;
         }
+    }
+
+    void OnBecameVisible(){
+        visible = true;
+    }
+
+    void OnBecameInvisible(){
+        visible = false;
     }
 
     public void SetTarget(){

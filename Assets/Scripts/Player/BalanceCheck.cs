@@ -12,7 +12,6 @@ public class BalanceCheck : MonoBehaviour{
     void Update(){
         if(!IsGrounded()){
             player.balance = true;
-            print("unBalanced");
         } else{
             player.balance = false;
         }

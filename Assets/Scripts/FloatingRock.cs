@@ -10,6 +10,7 @@ public class FloatingRock : MonoBehaviour{
     float distance;
 
     bool up;
+    bool visible;
 
     void Start(){
         GetComponent<Animator>().runtimeAnimatorController = rocks[Random.Range(0, rocks.Length)];
@@ -19,6 +20,7 @@ public class FloatingRock : MonoBehaviour{
     }
 
     void Update(){
+        if(!visible) return;
         speed = Random.Range(0.05f, 0.2f);
         spawnPos = transform.position;
 
@@ -37,5 +39,13 @@ public class FloatingRock : MonoBehaviour{
         }
 
         transform.position = spawnPos;   
+    }
+
+    void OnBecameVisible(){
+        visible = true;
+    }
+
+    void OnBecameInvisible(){
+        visible = false;
     }
 }

@@ -126,7 +126,7 @@ public class Player : MonoBehaviour{
     void FixedUpdate(){
         moveInput = Input.GetAxis("Horizontal");
         directMoveInput = Input.GetAxisRaw("Horizontal");
-        velocity.Set(moveInput * speed * Time.deltaTime, rb.velocity.y);
+        velocity.Set(moveInput * (speed * Time.fixedDeltaTime), rb.velocity.y);
         rb.velocity = velocity;
 
         if(!grounded){
