@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-/Users/Angeline/Desktop/WindowBuild/Endless.exe
+/Users/Angeline/Desktop/Whateveryourgoingtocallyourgame/Endless.exe
 SceneListBegin?
 Assets/Scenes/World.unity
 SceneListEnd?
@@ -8,7 +8,7 @@ a1f19ad47d3094e235f21b74dfc423a8 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 726fcf7961cbb4108aa5be5e55b8c8bf Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
 b13de7a0a457cb8e026d4237dc1b5797 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.LensDistortion
 afcaa920aae81d0cdc0a92a3e6138287 Assembly-CSharp.dll:.InfinteSpawning
-30ba5e278b837ddc31ddc08ab237fda8 Assembly-CSharp.dll:.ScreenSpaceRefractions
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CameraShake
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 780e8f682b3221346c034a6712a0fd25 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -59,6 +59,7 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Spark
 f542c1afca5bb4022f91fdda19b8d622 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.DepthOfField
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.BalanceCheck
 c0134904247588858984697f97c1b576 Assembly-CSharp.dll:.SparkChunk
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -94,7 +95,7 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 63d7b9b64a11859f416d72ba9a3c3fec Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ScreenSpaceReflections
 38bcb4d3f9a1812fd650f92e87a4cf64 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessProfile
-1e4605cd5b6e5711237c6212bd75fe76 Assembly-CSharp.dll:.Ui
+cb3b11884544786e8a4a7d5ad41af508 Assembly-CSharp.dll:.Ui
 e82c0521cdfe8cb6a168ef7208a98d4a Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.Vignette
 44330d129e482d480b5d17c02aefceaa Assembly-CSharp.dll:.Chunk
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -129,14 +130,18 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
 7e6ed836cbaa230e56d6a2bbae1b9bb5 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessEffectSettings
+9393d639678f861a74854320dd90c67c Assembly-CSharp.dll:.Butterfly
+e55c504bb58f5d509c0494be28829d13 Assembly-CSharp.dll:.Lighting
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButterflyBoxs
 61b9d9b6f4b6a222dfea8b131b3d3227 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ChromaticAberration
 5fd01e375329c94a9093a21b30087e55 Assembly-CSharp.dll:.Background
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TextPop
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 d6fc8d3165070298511ec776ea575626 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessResources
-86becdec73cdfe0810676d53afbf26e1 Assembly-CSharp.dll:.BackgroundManager
+9c26afd0d9511cfb847a92ccd0176b4c Assembly-CSharp.dll:.BackgroundManager
 a53651ee3996fbba20dfe0fce02f0b23 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.AutoExposure
 50c443b12ccc0b475183318b5088bcc5 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessDebug
-905de832b5b9c29d26a325cb208997f2 Assembly-CSharp.dll:.Cloud
+4d100fbfc331f4acf8bfe90a8f21c28a Assembly-CSharp.dll:.Cloud
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -167,14 +172,17 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+28873464cc7762d13b0cb44dfb73c8e8 Assembly-CSharp.dll:.Controller2d
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Unspawnable
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+65b3a3b9a7779d539ec75a3ceddebdba Assembly-CSharp.dll:.LightFollow
 a548f36ee18a4de91b7c76e9282a0746 Assembly-CSharp.dll:.Grass
 19308e4b4188eb5b3aee221de56a3080 Assembly-CSharp.dll:.Decoration
 d5630f96bd5a6a6eed7e1754c3fb8703 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessVolume
 d0987ce3e9092dbe0fa30d73f333fffa Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.Grain
 7c1f896adc45bf657527d2db53315223 Assembly-CSharp.dll:.Breath
 ac6acd886c54c48c599ab5fed5781ea7 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.AmbientOcclusion
-c3f0200ef92d7f72e78ecf9e5be6e8ce Assembly-CSharp.dll:.Player
+c3d9b605aa2dcb610e091c50780d811d Assembly-CSharp.dll:.Player
 e4bdd198714ebacf1ebef1367327eff4 Assembly-CSharp.dll:CodeMonkey.Assets
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.NewPlayer

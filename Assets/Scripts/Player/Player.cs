@@ -3,6 +3,7 @@
 public class Player : MonoBehaviour{
     Vector2 velocity;
     Vector2 box;
+    public BoxCollider2D balanceBoxs;
     Vector2 pos;
 
     public GameObject breath, jumpSmoke;
@@ -55,6 +56,12 @@ public class Player : MonoBehaviour{
 
         if(jump || fall){
             walk = false;
+        }
+
+        if(!IsBalance()){
+            balance = true;
+        } else{
+            balance = false;
         }
 
         if(sit){
@@ -205,6 +212,11 @@ public class Player : MonoBehaviour{
 
     public bool IsGrounded(){
         RaycastHit2D raycastHit2d = Physics2D.BoxCast(box2D.bounds.center, box2D.bounds.size, 0f, Vector2.down, 0.05f, groundLayerMask);
+        return raycastHit2d.collider != null;
+    }
+
+    public bool IsBalance(){
+        RaycastHit2D raycastHit2d = Physics2D.BoxCast(balanceBoxs.bounds.center, balanceBoxs.bounds.size, 0f, Vector2.down, 0.05f, groundLayerMask);
         return raycastHit2d.collider != null;
     }
 
